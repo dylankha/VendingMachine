@@ -125,6 +125,9 @@ public class Vendor
     */
     public static double getTotalSales()
     {
-
+        totalSales = deposit - change;
+        double totalSalesDisplay = totalSales;
+        return totalSalesDisplay;
+        totalSalesDisplay = 0;
     }
 }
