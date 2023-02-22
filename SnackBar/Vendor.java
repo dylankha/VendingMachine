@@ -15,7 +15,7 @@ public class Vendor
     private int deposit;
     private int change;
     //make a private static double variable called totalSales that has an initial value of 0 and stores the amount of money made
-
+    private static double totalSales = 0.0;
 
     /**
      * Constructs a Vendor
@@ -25,6 +25,8 @@ public class Vendor
     public Vendor(int price, int stock)
     {
         //You need to complete this using this. notation
+        this.price = price;
+        this.stock = stock;
     }
 
     /**
@@ -36,6 +38,7 @@ public class Vendor
     public void setStock(int stock)
     {
         //You need to complete this using this. notation
+        this.stock = stock;
     }
 
     /**
@@ -44,7 +47,7 @@ public class Vendor
      */
     public int getStock()
     {
-        //complete this
+        return stock;
     }
 
     /**
@@ -55,6 +58,7 @@ public class Vendor
     public void addMoney(int d)
     {
         //You need to complete this using mutator
+        deposit += d;
     }
 
     /**
@@ -78,6 +82,15 @@ public class Vendor
     public boolean makeSale()
     {
         //create the makesale method
+        if (stock > 0 && deposit >= price){
+            stock--;
+            change = deposit - price;
+            return true;
+        }
+        else{
+            change = deposit;
+            return false;
+        }
     }
 
     /**
@@ -98,10 +111,9 @@ public class Vendor
         /*
         note that the coin class has a .getQuarters(), a .getDimes() etc etc (use the coin class!)
         */
-        
 
-        String changeString="";
-
+        Coins c = new Coins (change);
+        String changeString = "Here is your change: " + "\n" + "Quarters: " + c.getQuarters() + "\n" + "Dimes: " + c.getDimes() + "\n" + "Nickles: " + c.getNickles() + "\n" + "Pennies: " + c.getPennies();
         return changeString;
     }
     
@@ -113,6 +125,6 @@ public class Vendor
     */
     public static double getTotalSales()
     {
-        //complete this
+
     }
 }
