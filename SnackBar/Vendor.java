@@ -125,7 +125,7 @@ public class Vendor
     */
     public static double getTotalSales()
     {
-        totalSales = deposit - change;
+        totalSales = this.deposit - this.change;
         double totalSalesDisplay = totalSales;
         return totalSalesDisplay;
         totalSalesDisplay = 0;
